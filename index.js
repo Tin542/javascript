@@ -2,7 +2,7 @@ const express = require("express");
 const app = express();
 const port = 3000;
 
-let arr = [2, 0, 8, 5, 1];
+let arr = [2, 0, 8, 5, 1, 2, 5];
 
 const trbcong = (array) => {
   let tong = 0;
@@ -13,6 +13,22 @@ const trbcong = (array) => {
   return tong;
 }
 
+const timsoduynhat = (mang) => {
+  console.log('chua xong');
+}
+
+const timsotrung = (mang) => {
+
+}
+
+const timminmax = (array) => {
+  array.sort((a,b)=> a-b);
+  return `min = ${array[0]} - max = ${array.length-1}`;
+}
+
+console.log('minmax: ', timminmax(arr));
+
+console.log('timsoduynhat: ', timsoduynhat(arr));
 console.log('trbcong: ', trbcong(arr));
 
 // const soLonNhat = (mang) => {
