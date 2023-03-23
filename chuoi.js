@@ -76,7 +76,8 @@ const reverseStr = (chuoi) => {
     let newStr = revArr.join('');
     return newStr;
 }
-// console.log('dao nguoc chuoi: ', reverseStr(str));
+const reverseStr2 = (chuoi) => chuoi.split('').reverse().join('');
+// console.log('dao nguoc chuoi: ', reverseStr2(str));
 
 
 const getStr = (chuoi) => chuoi.slice(chuoi.indexOf('A'), chuoi.indexOf('S')+1)
@@ -94,4 +95,25 @@ const getStrLength = (mang, n) => {
 let arr = ['abc', 'defghi', 'opiu'];
 // console.log(getStrLength(arr, 3));
 
+function countChar(chuoi, char){
+    let count = 0;
+    for (let i = 0; i < chuoi.length; i++){
+        if(chuoi[i] === char){
+            count++;
+        }
+    }
+    return count;
+}
+console.log(countChar(str, 'l'));
 
+const changeCamelToSnake = (chuoi) => {
+    for(let i = 0; i < chuoi.length; i++){
+        console.log(chuoi[i]);
+        if(chuoi[i] === chuoi[i].toUpperCase()){
+            console.log('true');
+            chuoi = chuoi.replace(chuoi[i], `_${chuoi[i].toLowerCase()}`);
+        }
+    }
+    return chuoi;
+}
+console.log(changeCamelToSnake('changeCamelToSnake'));
