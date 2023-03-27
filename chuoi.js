@@ -59,61 +59,118 @@
 // let arr = str.split(' ');
 // console.log('arr', arr);
 
-let str = 'Hello World';
+let str = "Hello World";
 
 const getStartEnd = (chuoi) => {
-    let a;
-    let b;
-    a = chuoi.slice(0,1);
-    b = chuoi.slice(chuoi.length-1, chuoi.length);
-    return `dau: ${a} - cuoi: ${b}`;
-}
+  let a;
+  let b;
+  a = chuoi.slice(0, 1);
+  b = chuoi.slice(chuoi.length - 1, chuoi.length);
+  return `dau: ${a} - cuoi: ${b}`;
+};
 // console.log('lay dau cuoi: ', getStartEnd(str));
 
 const reverseStr = (chuoi) => {
-    let arr = chuoi.split('');
-    let revArr = arr.reverse();
-    let newStr = revArr.join('');
-    return newStr;
-}
-const reverseStr2 = (chuoi) => chuoi.split('').reverse().join('');
+  let arr = chuoi.split("");
+  let revArr = arr.reverse();
+  let newStr = revArr.join("");
+  return newStr;
+};
+const reverseStr2 = (chuoi) => chuoi.split("").reverse().join("");
 // console.log('dao nguoc chuoi: ', reverseStr2(str));
 
-
-const getStr = (chuoi) => chuoi.slice(chuoi.indexOf('A'), chuoi.indexOf('S')+1)
+const getStr = (chuoi) =>
+  chuoi.slice(chuoi.indexOf("A"), chuoi.indexOf("S") + 1);
 
 // console.log(getStr('toi muon tim ki tu ABCDS trong chuoi duoi day'));
 
 const getStrLength = (mang, n) => {
-    for (let i = 0; i < mang.length; i++){
-        if(mang[i].length >= n){
-            return mang[i];
-        }
+  for (let i = 0; i < mang.length; i++) {
+    if (mang[i].length >= n) {
+      return mang[i];
     }
-    return 'error';
-}
-let arr = ['abc', 'defghi', 'opiu'];
+  }
+  return "error";
+};
+let arr = ["abc", "defghi", "opiu"];
 // console.log(getStrLength(arr, 3));
 
-function countChar(chuoi, char){
-    let count = 0;
-    for (let i = 0; i < chuoi.length; i++){
-        if(chuoi[i] === char){
-            count++;
-        }
+function countChar(chuoi, char) {
+  let count = 0;
+  for (let i = 0; i < chuoi.length; i++) {
+    if (chuoi[i] === char) {
+      count++;
     }
-    return count;
+  }
+  return count;
 }
-console.log(countChar(str, 'l'));
+// console.log(countChar(str, 'l'));
 
 const changeCamelToSnake = (chuoi) => {
-    for(let i = 0; i < chuoi.length; i++){
-        console.log(chuoi[i]);
-        if(chuoi[i] === chuoi[i].toUpperCase()){
-            console.log('true');
-            chuoi = chuoi.replace(chuoi[i], `_${chuoi[i].toLowerCase()}`);
-        }
+  for (let i = 0; i < chuoi.length; i++) {
+    if (chuoi[i] === chuoi[i].toUpperCase()) {
+      chuoi = chuoi.replace(chuoi[i], `_${chuoi[i].toLowerCase()}`);
     }
-    return chuoi;
+  }
+  return chuoi;
+};
+// console.log(changeCamelToSnake('changeCamelToSnake'));
+
+function checkChuoiDoiXung(chuoi) {
+  let len = chuoi.length - 1;
+  let flag = false;
+  for (let i = 0; i < chuoi.length; i++) {
+    if (chuoi[i] === chuoi[len]) {
+      flag = true;
+      len = len - 1;
+    } else return false;
+  }
+  return flag;
 }
-console.log(changeCamelToSnake('changeCamelToSnake'));
+// console.log("test: ", checkChuoiDoiXung("ABCDCBA"));
+
+// 8.Cho một chuỗi là đường dẫn của một file trong máy tính.
+// Đường dẫn đúng là đường dẫn không có các dấu gạch chéo (/) ở đầu, ở cuối, và ở giữa các folder chỉ có duy nhất một dấu gạch chéo
+// để phân tách. Hãy xóa các dấu gạch chéo thừa để được một đường dẫn đúng.
+// VD: ////laptrinh//////code//////chuanhoa///// èlaptrinh/code/chuanhoa
+
+let str2 = "///laptrinh///code///chuanhoa///laptrinh/code/chuanhoa//";
+function urlTransform(chuoi) {
+  let arr = chuoi.split("");
+  let i = 0;
+  while (i < arr.length) {
+    if (
+      (i === 0 && arr[i] === "/") ||
+      (i === arr.length - 1 && arr[i] === "/") ||
+      (arr[i] === "/" && arr[i + 1] === "/")
+    ) {
+      for (let j = i; j < arr.length; j++) {
+        arr[j] = arr[j + 1];
+      }
+      arr.length = arr.length - 1;
+
+    }else i++;
+  }
+  let newChuoi = arr.join('');
+  return newChuoi;
+}
+console.log(urlTransform(str2));
+
+// 9. Viết một hàm để tìm ra từ dài nhất trong chuỗi
+function maxLenWord(chuoi) {
+  let arr = chuoi.split(" ");
+  let result = arr[0];
+  let newArr = [];
+  for (let i = 1; i < arr.length; i++) {
+    if (arr[i].length > result.length) {
+      result = arr[i];
+    }
+  }
+  for (let i = 0; i < arr.length; i++) {
+    if (arr[i].length === result.length) {
+      newArr.push(arr[i]);
+    }
+  }
+  return newArr;
+}
+// console.log("chu dai nhat: ", maxLenWord("Toi ten la ABC"));
