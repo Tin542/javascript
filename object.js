@@ -23,7 +23,7 @@ function sumSalary(mang){
 
 let obj1 = {name: "John", age: 30}; 
 let obj2 = {city: "New York"}; 
-let newObj = {...obj1, ...obj2};
+let newObj = {...obj1, ...obj2}; // ... copy thanh phan ben trong obj
 // console.log('newObj: ', newObj);
 
 let obj3 = { 
@@ -38,17 +38,21 @@ let obj3 = {
 function getAllProperties(obj) {
   let props = {};
   for (let prop in obj) {
-    if (typeof obj[prop] === 'object' && obj[prop] !== null) {
+    if (typeof obj[prop] === 'object') {
       let nestedProps = getAllProperties(obj[prop]);
       props = {...props, ...nestedProps};
+      // console.log(props);
     } else {
       props[prop] = obj[prop];
     }
   }
   return props;
 }
-// console.log('newObject: ', getAllProperties(obj3))
+console.log('newObject: ', getAllProperties(obj3))
 
-
+// for (let i in arr): i la index trong arr
+// for (let i of arr): i la value trong arr
+// arr.forEach((value, index)=>{}): giống for bth
+// arr.map((value, index)=>{}): trả về 1 arr mới dựa trên ar cũ 
 
 

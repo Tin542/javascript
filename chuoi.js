@@ -178,6 +178,7 @@ console.log("chu dai nhat: ", maxLenWord("Toi ten la ABC"));
 // xoa ki tu trung
 const deleteDuplicate = (chuoi) => {
   chuoi = Array.from(new Set(chuoi.split(''))).join('');
+  
   return chuoi;
 }
 console.log('deleteDuplicate: ', deleteDuplicate('aabccdee'));
