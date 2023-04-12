@@ -1,0 +1,39 @@
+h1 {
+  color: #0000ff;
+}
+.test-css {
+  color: #ff0080;
+}
+#test-id {
+  color: #008080;
+}
+h2.el-class {
+  color: #800000;
+}
+
+h3,
+h4,
+h5 {
+  color: #ff8000;
+  text-decoration: underline;
+}
+
+p strong {
+  color: #00ff40;
+  text-decoration: underline;
+}
+
+.image-container {
+  height: 500px;
+  background-size: cover;
+  border: 2px solid #ff8000;
+  background-image: url("https://image.vtc.vn/resize/th/upload/2022/02/08/batman-1-10173371.jpg");
+}
+
+.tavv {
+  border: 2px solid black;
+  height: 200px;
+  width: 200px;
+  overflow: auto;
+  box-shadow: 10px 10px 10px #000000
+}
